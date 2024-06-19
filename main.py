@@ -8,11 +8,13 @@ app = Flask(__name__)
 def index():
     weather = None
     news = None
+    quotes = None
     if request.method == 'POST':
         city = request.form['city']
         weather = get_weather(city)
         news = get_news()
-    return render_template('index.html', weather=weather, news=news)
+        quotes = random_quote()
+    return render_template('index.html', weather=weather, news=news, quotes=quotes)
 
 
 
@@ -27,6 +29,11 @@ def get_news():
     url = f'https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}'
     response = requests.get(url)
     return response.json().get('articles', [])
+
+def random_quote():
+    url = 'https://api.quotable.io/random'
+    response = requests.get(url)
+    return response.json().get('content', 'author')
 
 if __name__ == '__main__':
     app.run(debug=True)

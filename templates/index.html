@@ -23,6 +23,16 @@
 </head>
 <body>
     <div class="container">
+
+           {% if quotes %}
+                <h2>Цитата дня:</h2>
+
+                <h3> {{ quotes['content'] }} </h3>
+                <p> Автор: {{ quotes['author'] }} </p>
+           {% endif %}
+    </div>
+
+    <div class="container">
         <h1 class="text-center mb-4">Сайт с прогнозом погоды в любой точке мира</h1>
 
         <form action="/" method="post" class="form-inline justify-content-center">
@@ -49,7 +59,6 @@
                    {% endfor %}
                </ul>
            {% endif %}
-
        </div>
     </div>
 
