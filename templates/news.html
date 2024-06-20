@@ -28,30 +28,12 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="/">Погода</a></li>
-                <li class="nav-item"><a class="nav-link" href="/quotes">Цитаты</a></li>
+                <li class="nav-item"><a class="nav-link" href="/quotes">Quotes</a></li>
 
             </ul>
         </div>
     </nav>
-
-    <div class="container">
-        <h1 class="text-center mb-4">Сайт с прогнозом погоды в любой точке мира</h1>
-
-        <form action="/" method="post" class="form-inline justify-content-center">
-            <div class="form-group mb-2">
-                <input type="text" id="city" name="city" class="form-control" placeholder="Введите город" required>
-            </div>
-            <button type="submit" class="btn btn-primary mb-2 ml-2">Узнать погоду</button>
-        </form>
-
-        <div class="result text-center">
-            {% if weather %}
-            <h3>Погода в {{ weather['name'] }}</h3>
-            <p>Температура: {{ weather['main']['temp'] }}°C</p>
-            <p>Погода: {{ weather['weather'][0]['description'] }}</p>
-            {% endif %}
-        </div>
-        <div class="result text-center">
+    <div class="result text-center">
 
            {% if news %}
                <h2>Новости:</h2>
@@ -62,8 +44,6 @@
                </ul>
            {% endif %}
        </div>
-    </div>
-
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
